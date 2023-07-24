@@ -1,13 +1,10 @@
 import { useRef } from "react";
 import { Navbar, Sidebar } from "../../components";
 import { Error404 } from "../../assets/svg";
-import { useLocalization } from "../../hooks/useLocalization";
 
 const ErrorLayout = () => {
     const navbarContentRef = useRef();
     const navbarRef = useRef();
-
-    const strings = useLocalization();
   
     return (
       <>
@@ -33,8 +30,8 @@ const ErrorLayout = () => {
                             height="256"
                         />
 
-                        <p className="font-bold text-[16px] mt-7">{strings.errors.error404_title}</p>
-                        <p className="mt-5 text-[14px]">{strings.errors.error404_content}</p>
+                        <p className="font-bold text-[16px] mt-7">Sayfa Bulunamadı</p>
+                        <p className="mt-5 text-[14px]">Aradığınız sayfa bulunamadı. Menüleri kullanarak dilediğiniz sayfaya ulaşabilirsiniz.</p>
                     </div>
                   </div>
                 </div>

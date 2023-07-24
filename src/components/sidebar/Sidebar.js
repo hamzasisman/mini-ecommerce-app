@@ -1,20 +1,16 @@
 import classnames from "classnames";
 import { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { SidebarMobile } from "..";
 import { LogoBeyaz } from "../../assets/svg";
 import { DefaultProfile } from "../../assets/img";
-import { useLocalization } from "../../hooks/useLocalization";
 import { url } from "../../routes/utility";
 import { employeeLogout } from "../../store/EmployeeSlice";
 import { animateArrow, toggleProfile, toggleSidebar } from "../Toggle";
 
 const Sidebar = ({ navbarContentRef, navbarRef }) => {
-  const strings = useLocalization();
   const dispatch = useDispatch();
-
-  const language = useSelector(state => state.localizationStore.language);
 
   const profileContentRef = useRef();
   const animateArrowRef = useRef();
@@ -116,12 +112,12 @@ const Sidebar = ({ navbarContentRef, navbarRef }) => {
                     className="py-3 px-5 transition-all animate-fadeOut max-h-0 -mt-[25px] w-full"
                   >
                     <div className={`${!isClick ? 'hidden' : ''}`}>
-                      <p className="mb-1">{strings.sidebar.profile.my_profile}</p>
+                      <p className="mb-1">Profilim</p>
                       <a
                         className="py-1 px-2 cursor-pointer hover:bg-gray-100 focus:bg-blue flex w-full"
                         onClick={() => dispatch(employeeLogout())}
                       >
-                        {strings.sidebar.profile.logout}
+                        Çıkış Yap
                       </a>
                     </div>
                   </div>
@@ -142,62 +138,31 @@ const Sidebar = ({ navbarContentRef, navbarRef }) => {
                     home
                   </span>
                   <span className="toggled w-full">
-                    {strings.sidebar.home_page}
+                    Ana Sayfa
                   </span>
                 </Link>
               </div>
               <div>
                 <div className="header text-section">
-                  <h4>{strings.sidebar.teacher.title}</h4>
+                  <h4>EĞİTMEN İŞLEMLERİ</h4>
                   <span className="material-symbols-outlined ml-1 font-bold hidden">
                     more_horiz
                   </span>
                 </div>
                 <Link
-                  to={url("teacher")}
+                  to={url("dashboard")}
                   className={classnames("sidebar-buttons group justify-end", {
-                    "active-button": pathName === "/teacher",
+                    "active-button": pathName === "/dashboard",
                   })}
                   onClick={() => { 
-                    pathName === "/teacher" && (window.location.href = "/teacher");
+                    pathName === "/dashboard" && (window.location.href = "/dashboard");
                   }}
                 >
                   <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
                     school
                   </span>
                   <span className="toggled w-full">
-                    {strings.sidebar.teacher.list}
-                  </span>
-                </Link>
-
-                <Link
-                  to={url("teacher.create")}
-                  className={classnames("sidebar-buttons group justify-end", {
-                    "active-button": pathName === "/teacher/create",
-                  })}
-                  onClick={() => { 
-                    pathName === "/teacher/create" && (window.location.href = "/teacher/create");
-                  }}
-                >
-                  <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                    add_circle
-                  </span>
-                  <span className="toggled w-full">
-                    {strings.sidebar.teacher.add_teacher}
-                  </span>
-                </Link>
-
-                <Link
-                  to={url("teacher.program")}
-                  className={classnames("sidebar-buttons group justify-end", {
-                    "active-button": pathName === "/teacher/program",
-                  })}
-                >
-                  <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                    hourglass_empty
-                  </span>
-                  <span className="toggled w-full">
-                    {strings.sidebar.teacher.teacher_program}
+                    Eğitmen Listesi
                   </span>
                 </Link>
               </div>

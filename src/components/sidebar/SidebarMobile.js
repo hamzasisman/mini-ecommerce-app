@@ -1,10 +1,9 @@
 import classnames from "classnames";
 import { useEffect, useRef } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { LogoBeyaz } from "../../assets/svg";
-import { useLocalization } from "../../hooks/useLocalization";
 import { url } from "../../routes/utility";
 import { employeeLogout } from "../../store/EmployeeSlice";
 import { animateArrow, closeSidebarMobile, toggleProfile, toggleSidebarMobile } from "../Toggle";
@@ -12,10 +11,7 @@ import { DefaultProfile } from "../../assets/img";
 
 const SidebarMobile = () => {
 
-  const strings = useLocalization();
   const dispatch = useDispatch();
-
-  const language = useSelector(state => state.localizationStore.language);
 
   const sidebarRef = useRef();
   const profileContentRef = useRef();
@@ -122,7 +118,7 @@ const SidebarMobile = () => {
                           </div>
                           <img
                             className="rounded-full order-first"
-                            src={ DefaultProfile }
+                            src={DefaultProfile}
                             width="42"
                             height="42"
                             alt=""
@@ -134,13 +130,13 @@ const SidebarMobile = () => {
                         className="accordion__content py-3 px-5 overflow-hidden transition-max-height duration-500 animate-fadeOut max-h-0 bg-transparent -mt-[25px] w-full"
                       >
                         <p className="mb-1">
-                          {strings.sidebar.profile.my_profile}
+                          Profilim
                         </p>
                         <a
                           className="py-1 px-2 cursor-pointer hover:bg-gray-100 focus:bg-blue flex w-full"
                           onClick={() => dispatch(employeeLogout())}
                         >
-                          {strings.sidebar.profile.logout}
+                          Çıkış Yap
                         </a>
                       </div>
                     </div>
@@ -156,48 +152,22 @@ const SidebarMobile = () => {
                       <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
                         home
                       </span>
-                      <span>{strings.sidebar.home_page}</span>
+                      <span>Ana Sayfa</span>
                     </Link>
                   </div>
 
                   <div>
-                    <h4 className="text-section">
-                      {strings.sidebar.teacher.title}
-                    </h4>
+                    <h4>EĞİTMEN İŞLEMLERİ</h4>
                     <Link
-                      to={url("teacher")}
+                      to={url("dashboard")}
                       className={classnames("sidebar-buttons group", {
-                        "active-button": pathName === "/teacher",
+                        "active-button": pathName === "/dashboard",
                       })}
                     >
                       <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
                         school
                       </span>
-                      <span>{strings.sidebar.teacher.list}</span>
-                    </Link>
-
-                    <Link
-                      to={url("teacher.create")}
-                      className={classnames("sidebar-buttons group", {
-                        "active-button": pathName === "/teacher/create",
-                      })}
-                    >
-                      <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                        add_circle
-                      </span>
-                      <span>{strings.sidebar.teacher.add_teacher}</span>
-                    </Link>
-
-                    <Link
-                      to={url("teacher.program")}
-                      className={classnames("sidebar-buttons group", {
-                        "active-button": pathName === "/teacher/program",
-                      })}
-                    >
-                      <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                        hourglass_empty
-                      </span>
-                      <span>{strings.sidebar.teacher.teacher_program}</span>
+                      <span>Eğitmen Listesi</span>
                     </Link>
                   </div>
                 </nav>

@@ -8,7 +8,7 @@ const routes = [
         name: "home",
         path: "/",
         roles: [],
-        element: <DashboardLayout />,
+        element: <Dashboard />,
     },
     // {
     //     name: "auth",
@@ -103,13 +103,13 @@ const routes = [
     //         },
     //     ]
     // },
-    {
-        name: "error404",
-        path: "*",
-        auth: true,
-        roles: [],
-        element: <ErrorLayout />
-    }
+    // {
+    //     name: "error404",
+    //     path: "*",
+    //     auth: true,
+    //     roles: [],
+    //     element: <ErrorLayout />
+    // }
 ]
 
 const authMap = routes => routes.map(route => {
