@@ -1,10 +1,8 @@
+import { useRoutes } from 'react-router-dom';
+import routes from './routes/routes';
 
 function App() {
-  return (
-    <div className="h-full w-full">
-      <p className='text-red-500'> Test</p>
-    </div>
-  );
+  return useRoutes(routes);
 }
 
 export default App;
