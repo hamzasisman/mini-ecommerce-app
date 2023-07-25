@@ -91,10 +91,10 @@ const Sidebar = ({ navbarContentRef, navbarRef }) => {
                       <div className="ml-2 flex items-center justify-between w-full toggled">
                         <div>
                           <p className="mb-[2px] text-[#777]">
-                            employee.FullName
+                            Hamza Şişman
                           </p>
                           <p className="font-bold text-[#555]">
-                            employeeType, language
+                            Admin
                           </p>
                         </div>
                         <div
@@ -154,12 +154,12 @@ const Sidebar = ({ navbarContentRef, navbarRef }) => {
                   </span>
                 </div>
                 <Link
-                  to={url("teacher")}
+                  to={url("dashboard")}
                   className={classnames("sidebar-buttons group justify-end", {
-                    "active-button": pathName === "/teacher",
+                    "active-button": pathName === "/dashboard",
                   })}
                   onClick={() => { 
-                    pathName === "/teacher" && (window.location.href = "/teacher");
+                    pathName === "/teacher" && (window.location.href = "/dashboard");
                   }}
                 >
                   <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
@@ -167,37 +167,6 @@ const Sidebar = ({ navbarContentRef, navbarRef }) => {
                   </span>
                   <span className="toggled w-full">
                     {strings.sidebar.teacher.list}
-                  </span>
-                </Link>
-
-                <Link
-                  to={url("teacher.create")}
-                  className={classnames("sidebar-buttons group justify-end", {
-                    "active-button": pathName === "/teacher/create",
-                  })}
-                  onClick={() => { 
-                    pathName === "/teacher/create" && (window.location.href = "/teacher/create");
-                  }}
-                >
-                  <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                    add_circle
-                  </span>
-                  <span className="toggled w-full">
-                    {strings.sidebar.teacher.add_teacher}
-                  </span>
-                </Link>
-
-                <Link
-                  to={url("teacher.program")}
-                  className={classnames("sidebar-buttons group justify-end", {
-                    "active-button": pathName === "/teacher/program",
-                  })}
-                >
-                  <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                    hourglass_empty
-                  </span>
-                  <span className="toggled w-full">
-                    {strings.sidebar.teacher.teacher_program}
                   </span>
                 </Link>
               </div>

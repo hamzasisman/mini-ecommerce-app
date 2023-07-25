@@ -109,10 +109,10 @@ const SidebarMobile = () => {
                           <div className="ml-2 flex items-center justify-between w-full toggled">
                             <div>
                               <p className="mb-[2px] text-[#777]">
-                                employee.FullName
+                                Hamza Şişman
                               </p>
                               <p className="font-bold text-[#555]">
-                                employeeType, language
+                                Admin
                               </p>
                             </div>
                             <div
@@ -165,39 +165,15 @@ const SidebarMobile = () => {
                       {strings.sidebar.teacher.title}
                     </h4>
                     <Link
-                      to={url("teacher")}
+                      to={url("dashboard")}
                       className={classnames("sidebar-buttons group", {
-                        "active-button": pathName === "/teacher",
+                        "active-button": pathName === "/dashboard",
                       })}
                     >
                       <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
                         school
                       </span>
                       <span>{strings.sidebar.teacher.list}</span>
-                    </Link>
-
-                    <Link
-                      to={url("teacher.create")}
-                      className={classnames("sidebar-buttons group", {
-                        "active-button": pathName === "/teacher/create",
-                      })}
-                    >
-                      <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                        add_circle
-                      </span>
-                      <span>{strings.sidebar.teacher.add_teacher}</span>
-                    </Link>
-
-                    <Link
-                      to={url("teacher.program")}
-                      className={classnames("sidebar-buttons group", {
-                        "active-button": pathName === "/teacher/program",
-                      })}
-                    >
-                      <span className="material-symbols-outlined mr-3 flex-shrink-0 h-6 w-6">
-                        hourglass_empty
-                      </span>
-                      <span>{strings.sidebar.teacher.teacher_program}</span>
                     </Link>
                   </div>
                 </nav>

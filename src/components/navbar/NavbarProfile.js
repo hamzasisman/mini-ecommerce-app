@@ -20,8 +20,8 @@ const NavbarProfile = forwardRef(() => {
           alt=""
         />
         <div className="ml-2">
-          <p className="my-1">employee.FullName</p>
-          <p className="text-[12px] text-[#6c757d] mb-1">employee.Email</p>
+          <p className="my-1">Hamza Şişman</p>
+          <p className="text-[12px] text-[#6c757d] mb-1">hamza.ssmnn@gmail.com</p>
         </div>
       </div>
 

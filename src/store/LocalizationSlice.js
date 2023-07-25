@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const LocalizationSlice = createSlice({
   name: 'localization',
-  initialState: { language: JSON.parse(localStorage.getItem('language')) || 'en' },
+  initialState: { language: JSON.parse(localStorage.getItem('language')) || 'tr' },
   reducers: {
     changeLanguage: (state, action) => {
       state.language = action.payload;
